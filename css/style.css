@@ -134,17 +134,19 @@ form button:hover {
 }
 
 @media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
     .menu ul {
-        margin-top: 0.5rem;
+        display: none;
+        flex-direction: column;
+        align-items: flex-end;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        background-color: #f0e9df;
+        padding: 1rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
-    .fecha {
-        flex-direction: column;
-        align-items: center;
+    .menu ul.show {
+        display: flex;
     }
 }
