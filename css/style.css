@@ -134,19 +134,25 @@ form button:hover {
 }
 
 @media (max-width: 768px) {
-    .menu ul {
-        display: none;
-        flex-direction: column;
-        align-items: flex-end;
-        position: absolute;
-        right: 0;
-        top: 100%;
-        background-color: #f0e9df;
-        padding: 1rem;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
+    .menu button {
+    display: block;
+}
 
-    .menu ul.show {
-        display: flex;
-    }
+    .menu ul {
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute;
+    right: 1rem;
+    width: 200px;
+    top: 60px;
+    background-color: #f0e9df;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.menu ul.show {
+    display: flex;
+}
 }
