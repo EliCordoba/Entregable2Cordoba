@@ -1,86 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Hotel Mar Azul</title>
-    <link rel="stylesheet" href="css/style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hotel Mar Azul</title>
+<link rel="stylesheet" href="css/style.css" />
+<!-- SweetAlert2 (librería externa) -->
+<script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script defer src="js/script.js"></script>
 </head>
 <body>
 
-<div class="header">
-    <img src="img/logo hotel.jpeg" alt="Logo Hotel Mar Azul" class="logo" />
-    <div class="menu">
-        <button id="menuToggle">☰</button>
-        <ul id="menuList" class="hidden">
-        <li><a href="#" onclick="mostrarSeccion('info')">¿Quiénes somos?</a></li>
-        <li><a href="#" onclick="mostrarSeccion('contacto')">Contacto</a></li>
-        <li><a href="#" onclick="mostrarSeccion('fotos')">Fotos</a></li>
+<header class="header">
+<img src="img/logo hotel.jpeg" alt="Logo Hotel Mar Azul" class="logo" />
+<nav class="menu">
+    <button id="menuToggle">☰</button>
+    <ul id="menuList" class="hidden">
+    <li><a href="#" onclick="mostrarSeccion('info')">¿Quiénes somos?</a></li>
+    <li><a href="#" onclick="mostrarSeccion('contacto')">Contacto</a></li>
+    <li><a href="#" onclick="mostrarSeccion('fotos')">Fotos</a></li>
+    <li><a href="#" onclick="mostrarSeccion('catalogo')">Catálogo</a></li>
+    <li><a href="#" onclick="mostrarSeccion('reservas')">Reservas</a></li>
     </ul>
-    </div>
-</div>
+</nav>
+</header>
 
+<main>
 <section class="hero">
     <img src="img/Hotel Mar Azul.jpeg" alt="Hotel Mar Azul" />
 </section>
 
 <section id="info" class="hidden info-extra">
-    <p>Este lugar es el paraíso que buscaba e imaginaba cada día una mujer luchadora y emprendedora, con muchas ganas de vivir en un lugar paradisíaco y ganarse la vida al mismo tiempo. Soy Elisa, quiero compartir con vos mi sueño de Hotel Mar Azul.</p>
-</section>
+    <p>Este lugar es el paraíso que buscaba e imaginaba cada día una mujer luchadora y emprendedora, con muchas ganas de vivir en un lugar paradisíaco y ganarse la vida al mismo tiempo.Soy Elisa, quiero compartir con vos mi sueño de Hotel Mar Azul. </p>
+</section> 
 
 <section id="contacto" class="hidden info-extra">
     <h3>📞 Contacto</h3>
+    <p>Email:  reservas@hotelmarazul.com</p>
     <p>Teléfono: +54 3572 608057</p>
 </section>
 
 <section id="fotos" class="hidden info-extra">
     <h3>🍽️ Comidas y bebidas</h3>
+    <div class="galeria">
     <img src="img/almuerzo.jpeg" alt="almuerzo" />
     <img src="img/trago.jpeg" alt="trago">
     <img src="img/desayuno.jpeg" alt="desayuno">
     <img src="img/comida.jpeg" alt="comida">
+    </div>
     <p>Incluye desayuno, almuerzo y tragos</p>
+</section>
+
+<!-- Catálogo dinámico -->
+<section id="catalogo" class="hidden info-extra">
+    <h2 style="text-align:center; margin-bottom:12px;">Catálogo de habitaciones</h2>
+    <div class="filtros">
+    <select id="filtroTipo">
+        <option value="todas">Todas</option>
+        <option value="simple">Simple</option>
+        <option value="doble">Doble</option>
+        <option value="suite">Suite</option>
+    </select>
+    <select id="ordenPrecio">
+        <option value="ninguno">Ordenar por precio</option>
+        <option value="asc">Menor a mayor</option>
+        <option value="desc">Mayor a menor</option>
+    </select>
+    </div>
+
+    <div id="habitacionesGrid" class="grid"></div>
 </section>
 
 <section class="intro">
     <h2>¡Reservá tu estadía ahora!</h2>
-    <p>Elegí tus fechas y habitación para ver la cotización.</p>
+    <p>Completá el formulario para guardar tu reserva.</p>
 </section>
 
-<section class="formulario">
+<section id="reservas" class="formulario hidden info-extra">
+    <h2>Crear / Editar Reserva</h2>
     <form id="formReserva">
-        <label for="ingresoDia">Fecha de ingreso:</label>
-<div class="fecha">
-    <select id="ingresoDia"></select>
-    <select id="ingresoMes"></select>
-    <select id="ingresoAnio"></select>
-</div>
+    <label for="nombre">Nombre del viajante:</label>
+    <input type="text" id="nombre" required>
 
-<label for="salidaDia">Fecha de salida:</label>
-<div class="fecha">
-    <select id="salidaDia"></select>
-    <select id="salidaMes"></select>
-    <select id="salidaAnio"></select>
-</div>
+    <label for="fechaIngreso">Fecha de ingreso:</label>
+    <input type="text" id="fechaIngreso" placeholder="dd/mm/aaaa" required pattern="\d{2}/\d{2}/\d{4}">
 
-        <label for="adultos">Adultos:</label>
-        <input type="number" id="adultos" min="1" value="1" required />
+    <label for="fechaSalida">Fecha de salida:</label>
+    <input type="text" id="fechaSalida" placeholder="dd/mm/aaaa" required pattern="\d{2}/\d{2}/\d{4}">
 
-        <label for="menores">Niños:</label>
-        <input type="number" id="menores" min="0" value="0" required />
 
-        <label for="tipo">Tipo de habitación:</label>
-        <select id="tipo">
+    <label for="adultos">Adultos:</label>
+    <input type="number" id="adultos" min="1" value="1" required>
+
+    <label for="menores">Niños:</label>
+    <input type="number" id="menores" min="0" value="0" required>
+
+    <label for="tipo">Tipo de habitación:</label>
+    <select id="tipo" required>
         <option value="simple">Simple</option>
         <option value="doble">Doble</option>
+        <option value="suite">Suite</option>
     </select>
 
-    <button type="submit">Reservar ahora</button>
+    <button type="submit">Guardar Reserva</button>
     </form>
+
+    <div class="reservas-section">
+    <h2>Reservas Registradas</h2>
+    <div id="resultado"></div>
+    <button id="vaciarTodo" class="danger">Vaciar Todas</button>
+    </div>
 </section>
-
-<div id="resultado"></div>
-
-<script src="js/script.js"></script>
+</main>
 </body>
 </html>

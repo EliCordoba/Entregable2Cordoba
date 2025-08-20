@@ -1,0 +1,56 @@
+[
+{
+    "id": 1,
+    "tipo": "simple",
+    "nombre": "Habitación Simple",
+    "capacidad": 2,
+    "precioBase": 150000,
+    "imagen": "img/habitacionsimple.jpg",
+    "servicios": ["Desayuno", "Wi-Fi", "Aire acondicionado"]
+},
+{
+    "id": 2,
+    "tipo": "doble",
+    "nombre": "Habitación Doble",
+    "capacidad": 4,
+    "precioBase": 200000,
+    "imagen": "img/habitaciondoble.jpg",
+    "servicios": ["Desayuno", "Almuerzo", "Wi-Fi", "Pileta"]
+},
+{
+    "id": 3,
+    "tipo": "suite",
+    "nombre": "Suite Mar",
+    "capacidad": 4,
+    "precioBase": 320000,
+    "imagen": "img/suitemar.webp",
+    "servicios": ["Desayuno", "Almuerzo", "Tragos", "Spa", "Vista al mar"]
+},
+{
+    "id": 4,
+    "tipo": "simple",
+    "nombre": "Habitación Simple",
+    "capacidad": 2,
+    "precioBase": 180000,
+    "imagen": "img/simplemar.jpg",
+    "servicios": ["Desayuno", "Wi-Fi", "Aire acondicionado"]
+},
+{
+    "id": 5,
+    "tipo": "doble",
+    "nombre": "Habitación Doble",
+    "capacidad": 4,
+    "precioBase": 250000,
+    "imagen": "img/doble.webp",
+    "servicios": ["Desayuno", "Almuerzo", "Wi-Fi", "Pileta"]
+},
+{
+    "id": 6,
+    "tipo": "suite",
+    "nombre": "Suite Mar",
+    "capacidad": 4,
+    "precioBase": 380000,
+    "imagen": "img/suiteplaya.jpg",
+    "servicios": ["Desayuno", "Almuerzo", "Tragos", "Spa", "Vista al mar"]
+}
+]
