@@ -29,12 +29,6 @@ border: none;
 cursor: pointer;
 }
 
-.menu ul {
-list-style: none;
-padding: 0;
-margin-top: 1rem;
-}
-
 .menu ul li a {
 text-decoration: none;
 color: #3a2c15;
@@ -157,9 +151,6 @@ font-size: .85rem;
 margin: 4px 4px 0 0;
 }
 
-
-/* Responsive menú hamburguesa */
-@media (max-width: 768px) {
 .menu ul {
     display: none;
     flex-direction: column;
@@ -176,5 +167,4 @@ margin: 4px 4px 0 0;
 
 .menu ul.show {
     display: flex;
-}
 }
